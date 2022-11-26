@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ae.mycourse.pokemon.R
+import ae.mycourse.pokemon.interfacesadapter.presenter.FragmentError
 import android.widget.Button
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,6 +25,7 @@ class MainScreen : Fragment() {
 
     lateinit var buttonPokedex: Button
     lateinit var buttonFavourites: Button
+    val bundle = Bundle()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +41,21 @@ class MainScreen : Fragment() {
         buttonFavourites = view.findViewById(R.id.buttonFavorourites)
         //Buttons listeners
         buttonPokedex.setOnClickListener{
-            var bundlePokedex = Bundle()
-            bundlePokedex.putString("fragmentData", "Sorry your pokemon don't have internet")
+
+            //TODO Male call in to retrofit. If you find success respond you must load fragment List, else you load fragment error
+            bundle.putString("fragmentData","Sorry your pokemon don't have internet")
+            nextFragment(FragmentError())
+        }
+        buttonFavourites.setOnClickListener{
+            //TODO Male call in to retrofit. If you find success respond you must load fragment favourites, else you load fragment error
+            bundle.putString("fragmentData","Why you don't have any favourites pokemon yet?")
+            nextFragment(FragmentError())
         }
         return view
+    }
+
+    private fun nextFragment(fragment:Fragment){
+        fragment.arguments = bundle
+        fragmentManager?.beginTransaction()?.replace(R.id.fragmentContainer,fragment)?.commit()
     }
 }
