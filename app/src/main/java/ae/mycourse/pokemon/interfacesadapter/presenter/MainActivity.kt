@@ -1,5 +1,6 @@
-package ae.mycourse.pokemon
+package ae.mycourse.pokemon.interfacesadapter.presenter
 
+import ae.mycourse.pokemon.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
