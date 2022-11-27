@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import ae.mycourse.pokemon.R
 import ae.mycourse.pokemon.interfacesadapter.presenter.FragmentError
+import ae.mycourse.pokemon.interfacesadapter.presenter.pokemondetails.PokemonDetails
 import ae.mycourse.pokemon.interfacesadapter.presenter.pokemonlist.PokemonList
 import android.widget.Button
 
@@ -33,7 +34,7 @@ class MainScreen : Fragment() {
 
             //TODO Male call in to retrofit. If you find success respond you must load fragment List, else you load fragment error
             bundle.putString("fragmentData","Sorry your pokemon don't have internet")
-            nextFragment(PokemonList())
+            nextFragment(PokemonDetails())
         }
         buttonFavourites.setOnClickListener{
             //TODO Male call in to retrofit. If you find success respond you must load fragment favourites, else you load fragment error
