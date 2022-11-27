@@ -7,19 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import ae.mycourse.pokemon.R
 import ae.mycourse.pokemon.interfacesadapter.presenter.FragmentError
+import ae.mycourse.pokemon.interfacesadapter.presenter.pokemonlist.PokemonList
 import android.widget.Button
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MainScreen.newInstance] factory method to
- * create an instance of this fragment.
- */
-
 
 class MainScreen : Fragment() {
 
@@ -44,7 +33,7 @@ class MainScreen : Fragment() {
 
             //TODO Male call in to retrofit. If you find success respond you must load fragment List, else you load fragment error
             bundle.putString("fragmentData","Sorry your pokemon don't have internet")
-            nextFragment(FragmentError())
+            nextFragment(PokemonList())
         }
         buttonFavourites.setOnClickListener{
             //TODO Male call in to retrofit. If you find success respond you must load fragment favourites, else you load fragment error

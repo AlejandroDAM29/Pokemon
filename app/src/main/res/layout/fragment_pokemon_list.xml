@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".interfacesadapter.presenter.PokemonList">
+    android:background="@drawable/pokemon_color_background"
+    tools:context=".interfacesadapter.presenter.pokemonlist.PokemonList">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="hola" />
+        android:layout_height="match_parent">
+
+        <SearchView
+            android:id="@+id/searchbar"
+            android:layout_width="348dp"
+            android:layout_height="59dp"
+            android:lines="1"
+            android:background="@drawable/searchbar_component"
+            android:theme="@style/searchbar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.023"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="336dp"
+            android:layout_height="546dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchbar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
