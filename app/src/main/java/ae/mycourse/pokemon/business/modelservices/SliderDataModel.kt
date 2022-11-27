@@ -1,4 +1,3 @@
 package ae.mycourse.pokemon.business.modelservices
 
-class sa {
-}
+data class SliderDataModel (val imgUrl: String)
