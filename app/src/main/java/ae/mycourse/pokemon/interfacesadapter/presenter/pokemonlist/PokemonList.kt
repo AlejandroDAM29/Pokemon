@@ -6,8 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ae.mycourse.pokemon.R
-import ae.mycourse.pokemon.aplications.RecyclerAdapter
-import ae.mycourse.pokemon.interfacesadapter.gateway.PokemonCalls
+import ae.mycourse.pokemon.aplications.MyRecyclerAdapter
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 class PokemonList : Fragment() {
     private lateinit var searchBar: SearchView
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: RecyclerAdapter
+    private lateinit var adapter: MyRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +26,8 @@ class PokemonList : Fragment() {
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = layoutManager
         recyclerView.setHasFixedSize(true)
-        val pokemonList = PokemonCalls().getPokemonList()
-        adapter = RecyclerAdapter(pokemonList)
+        var pokemonList = arguments?.getStringArrayList("listaPokemon")
+        adapter = MyRecyclerAdapter(pokemonList)
         recyclerView.adapter = adapter
         return view
     }

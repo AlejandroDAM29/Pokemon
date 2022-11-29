@@ -1,14 +1,15 @@
 package ae.mycourse.pokemon.aplications
 
+
 import ae.mycourse.pokemon.R
-import ae.mycourse.pokemon.business.modelservices.pokemonModel
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import java.util.ArrayList
 
-class RecyclerAdapter(private val newList : ArrayList<pokemonModel>) : RecyclerView.Adapter<RecyclerAdapter.MyViewHolder>() {
+class MyRecyclerAdapter(private val newList: ArrayList<String>?) : RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder>() {
     //RecyclerView Methods
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.pokemon_item_list, parent, false)
@@ -16,12 +17,15 @@ class RecyclerAdapter(private val newList : ArrayList<pokemonModel>) : RecyclerV
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentTimeItem = newList[position]
-        holder.pokemonName.text = currentTimeItem.namePokemon
+        val currentTimeItem = newList?.get(position)
+        holder.pokemonName.text = currentTimeItem
     }
 
     override fun getItemCount(): Int {
-        return newList.size
+        if (newList != null) {
+            return newList.size
+        }
+        return 0
     }
 
     //Internal class to manager RecyclerVIew
