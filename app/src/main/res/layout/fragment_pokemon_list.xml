@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/pokemon_color_background"
+    android:id="@+id/pokemonList"
     tools:context=".interfacesadapter.presenter.pokemonlist.PokemonList">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <SearchView
-            android:id="@+id/searchbar"
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchbarList"
             android:layout_width="348dp"
             android:layout_height="59dp"
             android:lines="1"
@@ -35,11 +36,10 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp"
             android:paddingBottom="50dp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchbar" />
+            app:layout_constraintTop_toBottomOf="@+id/searchbarList" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

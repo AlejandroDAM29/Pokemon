@@ -6,7 +6,11 @@
         <entry key="..\:/Users/aexposio/Documents/Pokemon/app/src/main/res/drawable/pokemon_color_background.xml" value="0.26615384615384613" />
         <entry key="..\:/Users/aexposio/Documents/Pokemon/app/src/main/res/drawable/round_corners_buttons.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/aexposio/Documents/Pokemon/app/src/main/res/layout/activity_main.xml" value="0.17300724637681159" />
+        <entry key="..\:/Users/aexposio/Documents/Pokemon/app/src/main/res/layout/dialog_custom_progress.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/aexposio/Documents/Pokemon/app/src/main/res/layout/fragment_main_screen.xml" value="0.264" />
+        <entry key="..\:/Users/aexposio/Documents/Pokemon/app/src/main/res/layout/fragment_pokemon_list.xml" value="0.25054704595185995" />
+        <entry key="..\:/Users/aexposio/Documents/Pokemon/app/src/main/res/layout/ialog_custom_progress.xml" value="0.176" />
+        <entry key="..\:/Users/aexposio/Documents/Pokemon/app/src/main/res/layout/pokemon_item_list.xml" value="0.21666666666666667" />
       </map>
     </option>
   </component>
