@@ -1,19 +1,14 @@
 package ae.mycourse.pokemon.aplications
 
 import ae.mycourse.pokemon.R
-import ae.mycourse.pokemon.interfacesadapter.presenter.pokemonlist.PokemonList
-import android.app.Activity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.squareup.picasso.Picasso
-import kotlin.coroutines.coroutineContext
 
 class MyRecyclerAdapter(var newList: MutableList<String>?, var imageList: MutableList<String>?) : RecyclerView.Adapter<MyRecyclerAdapter.ViewHolderList>() {
 
@@ -36,12 +31,9 @@ class MyRecyclerAdapter(var newList: MutableList<String>?, var imageList: Mutabl
 
     override fun getItemCount(): Int {
         if (newList != null) {
-            //Number of items to return
-            /*return newList!!.size*/
             return 150
         }
         return 0
-
     }
 
     class ViewHolderList(itemView : View) : RecyclerView.ViewHolder(itemView) {

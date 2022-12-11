@@ -28,10 +28,6 @@ class PokemonList : Fragment(), SearchView.OnQueryTextListener {
     private var pokemonNames: MutableList<String>? = null
     private var pokemonImages: MutableList<String>? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -49,7 +45,6 @@ class PokemonList : Fragment(), SearchView.OnQueryTextListener {
         //Lister searchbar
         var searchbarList: SearchView = view.findViewById(R.id.searchbarList)
         searchbarList.setOnQueryTextListener(this)
-
         return view
     }
 
@@ -73,9 +68,7 @@ class PokemonList : Fragment(), SearchView.OnQueryTextListener {
             }else{
                 Toast.makeText(context, "No hay conexión", Toast.LENGTH_LONG).show()
             }
-
         }
-
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {

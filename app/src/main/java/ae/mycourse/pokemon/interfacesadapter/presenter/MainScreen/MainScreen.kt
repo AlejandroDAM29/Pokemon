@@ -12,7 +12,6 @@ import ae.mycourse.pokemon.interfacesadapter.gateway.ApiClient
 import ae.mycourse.pokemon.interfacesadapter.gateway.PokeApiRetrofit
 import ae.mycourse.pokemon.interfacesadapter.presenter.FragmentError
 import ae.mycourse.pokemon.interfacesadapter.presenter.pokemonlist.PokemonList
-import android.app.Dialog
 import android.util.Log
 import android.widget.Button
 import kotlinx.coroutines.CoroutineScope
@@ -26,15 +25,10 @@ class MainScreen : Fragment() {
     var bundle = Bundle()
     lateinit var utils: Utils
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
         val view  = inflater.inflate(R.layout.fragment_main_screen, container, false)
         utils = Utils(requireContext())
         buttonPokedex = view.findViewById(R.id.buttonPokedex)
@@ -42,8 +36,6 @@ class MainScreen : Fragment() {
         //Buttons listeners
         buttonPokedex.setOnClickListener{
             getPokemonList()
-
-
         }
         buttonFavourites.setOnClickListener{
             //TODO Male call in to retrofit. If you find success respond you must load fragment favourites, else you load fragment error
@@ -58,7 +50,6 @@ class MainScreen : Fragment() {
         lateinit var pokemonNamesList: AllPokemonsModel
         var newArrayList: ArrayList<String> = ArrayList()
         var arrayListImages: ArrayList<String> = ArrayList()
-
         CoroutineScope(Dispatchers.IO).launch {
             val call = PokeApiRetrofit().getRetrofit().create(ApiClient::class.java).getListPokemon()
             val links = call.body()
@@ -71,6 +62,7 @@ class MainScreen : Fragment() {
                         if(callData.isSuccessful)
                             arrayListImages.add(callData.body()!!.sprites.front_default)
                             Log.i("mensaje", callData.body()!!.sprites.front_default)
+                        utils.setProgressCircleDialog(newArrayList.size)
                     }
                     bundle.putStringArrayList("listaPokemon", newArrayList)
                     bundle.putStringArrayList("listImagePokemon", arrayListImages)

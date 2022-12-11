@@ -1,4 +1,6 @@
 package ae.mycourse.pokemon.business.modelservices
 
-data class ItemModel(var name: String,
-                     var url: String)
+import com.google.gson.annotations.SerializedName
+
+data class ItemModel(@SerializedName(value = "name") var name: String,
+                     @SerializedName(value = "url") var url: String)
