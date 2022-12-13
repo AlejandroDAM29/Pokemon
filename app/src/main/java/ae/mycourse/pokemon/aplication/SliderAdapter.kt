@@ -1,4 +1,4 @@
-package ae.mycourse.pokemon.aplications
+package ae.mycourse.pokemon.aplication
 
 import ae.mycourse.pokemon.R
 import android.view.LayoutInflater

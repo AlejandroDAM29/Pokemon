@@ -38,8 +38,7 @@ class MainScreen : Fragment() {
             getPokemonList()
         }
         buttonFavourites.setOnClickListener{
-            //TODO Male call in to retrofit. If you find success respond you must load fragment favourites, else you load fragment error
-            bundle.putString("fragmentData","Why you don't have any favourites pokemon yet?")
+            bundle.putString("fragmentData",getString(R.string.fragmentErrorFavourites))
             /*nextFragment(FragmentError())*/
         }
         return view
@@ -61,17 +60,16 @@ class MainScreen : Fragment() {
                         val callData = PokeApiRetrofit().getRetrofit().create(ApiClient::class.java).getDetailsPokemon(i.name)
                         if(callData.isSuccessful)
                             arrayListImages.add(callData.body()!!.sprites.front_default)
-                            Log.i("mensaje", callData.body()!!.sprites.front_default)
-                        utils.setProgressCircleDialog(newArrayList.size)
+                        utils.setProgressCircleDialog(newArrayList.size,  getText(R.string.loadingDownloadDialog).toString()+" "+ newArrayList.size + " "+getString(R.string.loadingDownloadDialog2).toString())
                     }
-                    bundle.putStringArrayList("listaPokemon", newArrayList)
+                    bundle.putStringArrayList("listPokemonNames", newArrayList)
                     bundle.putStringArrayList("listImagePokemon", arrayListImages)
                     utils.closeCustomProgressDialog()
                     nextFragment(PokemonList())
                 }
             }else{
-                bundle.putString("fragmentData","Ups, your pokemons dont have connection")
-                utils.closeCustomProgressDialog()
+                bundle.putString("fragmentData", getString(R.string.fragmentErrorConection))
+                /*utils.closeCustomProgressDialog()*/
                 nextFragment(FragmentError())
             }
         }

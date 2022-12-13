@@ -5,4 +5,10 @@
     <string name="pokedex">Pokedex</string>
     <string name="favourites">Favourites</string>
     <string name="pokemon">Pokemon</string>
+    <string name="loadingDownloadDialog">Loading</string>
+    <string name="loadingDownloadDialog2">of 150 pokemons</string>
+
+    <!--FRAGMENT ERROR-->
+    <string name="fragmentErrorConection">Ups, your pokemons don\'t have connection</string>
+    <string name="fragmentErrorFavourites">Why you don\'t have any favourites pokemon yet?"</string>
 </resources>

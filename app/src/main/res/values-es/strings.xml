@@ -6,4 +6,10 @@
     <string name="pokedex">Pokedex</string>
     <string name="favourites">Favoritos</string>
     <string name="pokemon">Pokemon</string>
+    <string name="loadingDownloadDialog">Cargando </string>
+    <string name="loadingDownloadDialog2"> of 150 pokemons</string>
+
+    <!--FRAGMENT ERROR-->
+    <string name="fragmentErrorConection">Vaya, tus pokemons no tienen conexión</string>
+    <string name="fragmentErrorFavourites">¿A qué esperas para tener pokemons favoritos?"</string>
 </resources>

@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.widget.TextView
 import com.google.android.material.progressindicator.CircularProgressIndicator
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -26,12 +27,13 @@ class Utils(context:Context) {
         customProgressDialog.cancel()
     }
 
-    fun setProgressCircleDialog(percentProgress: Int){
-        //Calculate percent of circle
+    @DelicateCoroutinesApi
+    fun setProgressCircleDialog(percentProgress: Int, textDialog: String){
+        //Calculate percent of circle progress dialog
         val percentProgressCalculated = (percentProgress*100)/150
         GlobalScope.launch(Dispatchers.Main){
             customCircleProgress.setProgressCompat(percentProgressCalculated, true)
-            textQuantityPokemon.text = "Cargando "+percentProgress+" de 150 pokemons"
+            textQuantityPokemon.text = textDialog
         }
     }
 }

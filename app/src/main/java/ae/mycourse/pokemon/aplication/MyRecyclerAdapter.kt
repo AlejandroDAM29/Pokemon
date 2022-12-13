@@ -1,4 +1,4 @@
-package ae.mycourse.pokemon.aplications
+package ae.mycourse.pokemon.aplication
 
 import ae.mycourse.pokemon.R
 import android.util.Log
@@ -26,14 +26,20 @@ class MyRecyclerAdapter(var newList: MutableList<String>?, var imageList: Mutabl
             Picasso.get().load(imageList?.get(position)).into(holder.pokemonImage)
         }
         holder.pokemonName.text = newList?.get(position)
-
     }
 
     override fun getItemCount(): Int {
         if (newList != null) {
-            return 150
+            return newList!!.size
         }
         return 0
+    }
+
+
+    fun filterList(pokemonFilteredNames: MutableList<String>, pokemonFilteredImages: MutableList<String>){
+        newList = pokemonFilteredNames
+        imageList = pokemonFilteredImages
+        notifyDataSetChanged()
     }
 
     class ViewHolderList(itemView : View) : RecyclerView.ViewHolder(itemView) {

@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ae.mycourse.pokemon.aplications.SliderAdapter
+import ae.mycourse.pokemon.aplication.SliderAdapter
 import com.smarteist.autoimageslider.SliderView
 
 
