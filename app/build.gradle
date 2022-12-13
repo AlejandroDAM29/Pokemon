@@ -9,12 +9,12 @@ configurations.all {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "ae.mycourse.pokemon"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -37,6 +37,7 @@ android {
 }
 
 dependencies {
+
     //Library to put sliders
     implementation 'com.github.smarteist:autoimageslider:1.3.9'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
@@ -54,6 +55,14 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+    // Fragment
+    implementation "androidx.fragment:fragment-ktx:1.5.5"
+    // Activity
+    implementation "androidx.activity:activity-ktx:1.6.1"
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
