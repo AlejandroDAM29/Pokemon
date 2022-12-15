@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/mainScreen"
     android:background="@drawable/pokemon_color_background"
-    tools:context=".interfacesadapter.presenter.MainScreen.MainScreen">
+    tools:context=".ui.view.MainScreen">
 
 
 
