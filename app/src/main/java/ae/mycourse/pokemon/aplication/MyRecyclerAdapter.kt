@@ -1,6 +1,7 @@
 package ae.mycourse.pokemon.aplication
 
 import ae.mycourse.pokemon.R
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -36,6 +37,7 @@ class MyRecyclerAdapter(var newList: MutableList<String>?, var imageList: Mutabl
     }
 
 
+    @SuppressLint("NotifyDataSetChanged")
     fun filterList(pokemonFilteredNames: MutableList<String>, pokemonFilteredImages: MutableList<String>){
         newList = pokemonFilteredNames
         imageList = pokemonFilteredImages

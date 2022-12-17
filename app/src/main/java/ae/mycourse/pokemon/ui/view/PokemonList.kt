@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import ae.mycourse.pokemon.R
 import ae.mycourse.pokemon.aplication.MyRecyclerAdapter
+import ae.mycourse.pokemon.data.providerClasses.PokemonProvider
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.SearchView
@@ -30,8 +31,8 @@ class PokemonList : Fragment(), SearchView.OnQueryTextListener {
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = layoutManager
         recyclerView.setHasFixedSize(true)
-        pokemonNames = arguments?.getStringArrayList("listPokemonNames")
-        pokemonImages = arguments?.getStringArrayList("listImagePokemon")
+        pokemonNames = PokemonProvider.pokemonList!!.pokemonNames
+        pokemonImages = PokemonProvider.pokemonList!!.pokemonImages
         adapter = MyRecyclerAdapter(pokemonNames, pokemonImages)
         recyclerView.adapter = adapter
         //Lister searchbar
