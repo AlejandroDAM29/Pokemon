@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-android-extensions'
+    id "org.sonarqube" version "3.5.0.2730"
+    id('kotlin-kapt')
+    id('com.google.dagger.hilt.android')
 }
 
 configurations.all {
@@ -10,7 +12,6 @@ configurations.all {
 
 android {
     compileSdk 33
-
     defaultConfig {
         applicationId "ae.mycourse.pokemon"
         minSdk 21
@@ -19,6 +20,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    viewBinding {
+        enabled = true
     }
 
     buildTypes {
@@ -67,8 +72,29 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+apply plugin: "org.sonarqube"
+sonarqube {
+    properties {
+        property "sonar.projectName", "Pokemon"
+        property "sonar.host.url", "http://localhost:9377"
+        property "sonar.tests", ["src/test/java"]
+        property "sonar.sourceEncoding", "UTF-8"
+        property "sonar.sources", "src/main/java"
+        property "sonar.login", "admin"
+        property "sonar.password", "morodo2"
+    }
+}
+
+// Allow references to generated code
+kapt {
+    correctErrorTypes = true
 }
