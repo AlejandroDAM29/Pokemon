@@ -1,39 +1,41 @@
 package ae.mycourse.pokemon.usescases
 
+import ae.mycourse.pokemon.R
 import ae.mycourse.pokemon.data.pokemon.repositories.PokemonRepository
 import ae.mycourse.pokemon.domain.ListPokemonsModel
-import ae.mycourse.pokemon.domain.PokemonProviderModel
 import ae.mycourse.pokemon.framework.common.DialogProgressCircleBar
-import ae.mycourse.pokemon.framework.datasources.domain.allpokemon.AllPokemonsModelResponse
-import android.app.Activity
+import android.annotation.SuppressLint
 import android.app.Application
+import android.app.Dialog
 import android.content.Context
-import android.util.Log
-import hilt_aggregated_deps._dagger_hilt_android_internal_modules_ApplicationContextModule
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import retrofit2.Response
+import kotlinx.coroutines.DelicateCoroutinesApi
 
-class GetPokemonsListUseCase(private val pokemonRepository: PokemonRepository, private val progressDialog: DialogProgressCircleBar) {
+class GetPokemonsListUseCase (private val pokemonRepository: PokemonRepository): DialogProgressCircleBar() {
 
-    //TODO Aquí es donde debo acoplar las dos llamadas de retrofit para recuperar el objeto de la lista entera.
-    /*suspend fun invoke(): MutableList<String> = pokemonRepository.getListPokemon()*/
-    suspend fun invoke(): ListPokemonsModel{
+    lateinit var mContext: Context
+
+    @OptIn(DelicateCoroutinesApi::class)
+    @SuppressLint("SuspiciousIndentation")
+    suspend fun invoke(context: Context): ListPokemonsModel{
+        mContext = context
+        showCustomProgressDialog(context)
         val pokemonImages: MutableList<String> = mutableListOf()
-        progressDialog.showCustomProgressDialog()
         val pokemonNames = pokemonRepository.getListPokemon()
         for (name in pokemonNames){
             pokemonImages.add(pokemonRepository.getImagesPokemon(name))
-            progressDialog.setProgressCircleDialog(calculatePercentPokemonLoaded(pokemonImages.size),
-                "hola"
-            )
-        }
-        progressDialog.closeCustomProgressDialog()
+            setProgressCircleDialog(pokemonImages.size)
+    }
+        customProgressDialog.cancel()
         return ListPokemonsModel(pokemonNames,pokemonImages)
     }
 
-    private fun calculatePercentPokemonLoaded(pokemonsLoaded: Int): Int{
-        return (pokemonsLoaded*100)/150
+    override fun getcalculatedPorcentDialog(quantity: Int): Int {
+        return (quantity*100)/150
     }
+
+    override fun getTextDialog(quantity: Int) = mContext.getString(R.string.loadingDownloadDialog) +
+                " "+ quantity.toString()+" "+
+                mContext.getString(R.string.loadingDownloadDialog2)
+
 
 }

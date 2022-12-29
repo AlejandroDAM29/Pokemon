@@ -9,6 +9,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -39,11 +40,5 @@ class FrameworkModule {
     @Provides
     fun pokemonApiClient(pokeApiRemoteService: PokeApiRemoteService): PokemonApiService{
         return ServerPokemonDataSource(pokeApiRemoteService)
-    }
-
-    @Provides
-    @Singleton
-    fun dialogProvider(appContext: Context): DialogProgressCircleBar{
-        return DialogProgressCircleBar(appContext)
     }
 }

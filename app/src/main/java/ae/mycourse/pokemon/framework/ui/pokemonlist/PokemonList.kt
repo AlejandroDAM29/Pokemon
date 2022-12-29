@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import ae.mycourse.pokemon.R
-import ae.mycourse.pokemon.databinding.FragmentMainScreenBinding
 import ae.mycourse.pokemon.databinding.FragmentPokemonListBinding
+import ae.mycourse.pokemon.framework.common.DialogProgressCircleBar
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 //Esto es para que las inyecciones no estén vivas toda la aplicación. Para ello se usa la siguiente anotación. Si se usa
@@ -47,7 +47,7 @@ class PokemonList : Fragment() {
 
         //TODO A este recycler le voy a meter el caso de uso para poder pillar los pokemons
         var myRecycler = binding.recyclerViewList
-        pokemonListViewModel.getPokemonList()
+        pokemonListViewModel.getPokemonList(requireContext())
         return view
     }
 

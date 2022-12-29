@@ -1,38 +1,42 @@
 package ae.mycourse.pokemon.framework.common
 
 import ae.mycourse.pokemon.R
+import ae.mycourse.pokemon.databinding.DialogCustomProgressBinding
+import ae.mycourse.pokemon.databinding.FragmentPokemonListBinding
+import android.app.Application
 import android.app.Dialog
 import android.content.Context
+import android.view.View
 import android.widget.TextView
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.*
+import javax.inject.Inject
 
-class DialogProgressCircleBar(context:Context) {
-
-    var customProgressDialog: Dialog = Dialog(context)
-    lateinit var customCircleProgress: CircularProgressIndicator
+abstract class DialogProgressCircleBar () {
+    lateinit var circularProgressIndicator: CircularProgressIndicator
     lateinit var textQuantityPokemon: TextView
 
-    fun showCustomProgressDialog(){
+    lateinit var customProgressDialog: Dialog
+
+    fun showCustomProgressDialog(context: Context){
+        customProgressDialog = Dialog(context)
         customProgressDialog.setContentView(R.layout.dialog_custom_progress)
         customProgressDialog.show()
-        customCircleProgress = customProgressDialog.findViewById(R.id.circularProgressIndicator)
+        circularProgressIndicator = customProgressDialog.findViewById(R.id.circularProgressIndicator)
         textQuantityPokemon = customProgressDialog.findViewById(R.id.textQuantityPokemon)
     }
 
-    fun closeCustomProgressDialog(){
-        customProgressDialog.cancel()
+    @DelicateCoroutinesApi
+    fun setProgressCircleDialog(percentProgress: Int){
+            circularProgressIndicator.setProgressCompat(getcalculatedPorcentDialog(percentProgress), true)
+            textQuantityPokemon.text = getTextDialog(percentProgress)
+
     }
 
-    @DelicateCoroutinesApi
-    fun setProgressCircleDialog(percentProgress: Int, textDialog: String){
-        val percentProgressCalculated = (percentProgress*100)/150
-        GlobalScope.launch(Dispatchers.Main){
-            customCircleProgress.setProgressCompat(percentProgressCalculated, true)
-            textQuantityPokemon.text = textDialog
-        }
-    }
+    //Here is the form to calculate total percent for every screen
+    abstract fun getcalculatedPorcentDialog(quantity: Int): Int
+
+    //The string that you can see to say user how is going the process
+    abstract fun getTextDialog(quantity: Int): String
 }
