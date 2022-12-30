@@ -1,6 +1,7 @@
 package ae.mycourse.pokemon.framework.ui.pokemonlist
 
 import ae.mycourse.pokemon.R
+import ae.mycourse.pokemon.framework.common.picassoConvert
 import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,11 +21,10 @@ class MyRecyclerAdapter(var newList: MutableList<String>?, var imageList: Mutabl
     }
 
     override fun onBindViewHolder(holder: ViewHolderList, position: Int) {
-        Log.i("Mensaje2",imageList.toString())
         if (imageList?.get(position) == null){
             holder.pokemonImage.setImageResource(R.drawable.image_not_found)
         }else{
-            Picasso.get().load(imageList?.get(position)).into(holder.pokemonImage)
+            holder.pokemonImage.picassoConvert(imageList?.get(position))
         }
         holder.pokemonName.text = newList?.get(position)
     }
