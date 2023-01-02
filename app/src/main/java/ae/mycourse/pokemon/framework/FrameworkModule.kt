@@ -41,4 +41,6 @@ class FrameworkModule {
     fun pokemonApiClient(pokeApiRemoteService: PokeApiRemoteService): PokemonApiService{
         return ServerPokemonDataSource(pokeApiRemoteService)
     }
+
+
 }

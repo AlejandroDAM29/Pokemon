@@ -6,27 +6,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ae.mycourse.pokemon.databinding.FragmentPokemonListBinding
-import ae.mycourse.pokemon.framework.common.DialogProgressCircleBar
+import ae.mycourse.pokemon.domain.ListPokemonsModel
+import android.annotation.SuppressLint
+import android.util.Log
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
-//Esto es para que las inyecciones no estén vivas toda la aplicación. Para ello se usa la siguiente anotación. Si se usa
-//en un fragmento, se debe inyectar las dependencias en las clases que use este fragmento
 @AndroidEntryPoint
-class PokemonList : Fragment() {
+class PokemonList : Fragment(), SearchView.OnQueryTextListener {
 
     private var _binding: FragmentPokemonListBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
     private val pokemonListViewModel : PokemonListViewModel by viewModels()
+    lateinit var recyclerListAdapter: MyRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -34,21 +36,27 @@ class PokemonList : Fragment() {
         _binding = FragmentPokemonListBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        var recyclerListAdapter = MyRecyclerAdapter(pokemonListViewModel.pokemonList.value?.names, pokemonListViewModel.pokemonList.value?.images)
+        recyclerListAdapter = MyRecyclerAdapter(pokemonListViewModel.pokemonList.value?.names, pokemonListViewModel.pokemonList.value?.images)
         binding.recyclerViewList.adapter = recyclerListAdapter
 
         pokemonListViewModel.pokemonList.observe(viewLifecycleOwner){ pokemons ->
             recyclerListAdapter.newList = pokemons.names
             recyclerListAdapter.imageList = pokemons.images
+            recyclerListAdapter.notifyDataSetChanged()
         }
 
+        binding.searchbarList.setOnQueryTextListener(this)
 
-
-
-        //TODO A este recycler le voy a meter el caso de uso para poder pillar los pokemons
-        var myRecycler = binding.recyclerViewList
         pokemonListViewModel.getPokemonList(requireContext())
         return view
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean = true
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onQueryTextChange(newText: String?): Boolean {
+        /*pokemonListViewModel.filterList(newText)*/
+        return true
     }
 
 }
