@@ -36,12 +36,11 @@ class PokemonList : Fragment(), SearchView.OnQueryTextListener {
         _binding = FragmentPokemonListBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        recyclerListAdapter = MyRecyclerAdapter(pokemonListViewModel.pokemonList.value?.names, pokemonListViewModel.pokemonList.value?.images)
+        recyclerListAdapter = MyRecyclerAdapter(pokemonListViewModel.pokemonList.value)
         binding.recyclerViewList.adapter = recyclerListAdapter
 
         pokemonListViewModel.pokemonList.observe(viewLifecycleOwner){ pokemons ->
-            recyclerListAdapter.newList = pokemons.names
-            recyclerListAdapter.imageList = pokemons.images
+            recyclerListAdapter.pokemonList = pokemons
             recyclerListAdapter.notifyDataSetChanged()
         }
 

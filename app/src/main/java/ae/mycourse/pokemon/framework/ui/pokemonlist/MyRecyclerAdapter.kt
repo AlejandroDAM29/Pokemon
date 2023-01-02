@@ -1,6 +1,7 @@
 package ae.mycourse.pokemon.framework.ui.pokemonlist
 
 import ae.mycourse.pokemon.R
+import ae.mycourse.pokemon.domain.ListPokemonsModel
 import ae.mycourse.pokemon.framework.common.picassoConvert
 import android.annotation.SuppressLint
 import android.util.Log
@@ -12,7 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class MyRecyclerAdapter(var newList: MutableList<String>?, var imageList: MutableList<String>?) : RecyclerView.Adapter<MyRecyclerAdapter.ViewHolderList>() {
+class MyRecyclerAdapter(var pokemonList: ListPokemonsModel?) : RecyclerView.Adapter<MyRecyclerAdapter.ViewHolderList>() {
 
     //RecyclerView Methods
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderList {
@@ -21,26 +22,25 @@ class MyRecyclerAdapter(var newList: MutableList<String>?, var imageList: Mutabl
     }
 
     override fun onBindViewHolder(holder: ViewHolderList, position: Int) {
-        if (imageList?.get(position) == null){
+        if (pokemonList?.images?.get(position) == null){
             holder.pokemonImage.setImageResource(R.drawable.image_not_found)
         }else{
-            holder.pokemonImage.picassoConvert(imageList?.get(position))
+            holder.pokemonImage.picassoConvert(pokemonList?.images?.get(position))
         }
-        holder.pokemonName.text = newList?.get(position)
+        holder.pokemonName.text = pokemonList?.names?.get(position)
     }
 
     override fun getItemCount(): Int {
-        if (newList != null) {
-            return newList!!.size
+        if (pokemonList?.names != null) {
+            return pokemonList!!.names.size
         }
         return 0
     }
 
 
     @SuppressLint("NotifyDataSetChanged")
-    fun filterList(pokemonFilteredNames: MutableList<String>, pokemonFilteredImages: MutableList<String>){
-        newList = pokemonFilteredNames
-        imageList = pokemonFilteredImages
+    fun filterList(pokemonFilteredList: ListPokemonsModel){
+        pokemonList = pokemonFilteredList
         notifyDataSetChanged()
     }
 
