@@ -12,20 +12,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.SearchView
+        <EditText
             android:id="@+id/searchbarList"
-            android:layout_width="348dp"
-            android:layout_height="59dp"
-            android:lines="1"
-            android:background="@drawable/searchbar_component"
-            android:theme="@style/searchbar"
+            style="@style/searchbar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.023"
-            />
+            app:layout_constraintVertical_bias="0.023" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewList"

@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="searchbar" parent="Widget.AppCompat.SearchView" >
-        <!-- Text Size -->
         <item name="android:textSize">20sp</item>
-        <!-- Query Text Color -->
-        <item name="android:textColorPrimary">@color/mainRedColor</item>
-        <!-- Hint Color -->
-        <item name="android:textColorHint">@color/mainRedColor</item>
-        <!-- Icon Color -->
-        <item name="android:tint">@color/mainRedColor</item>
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@drawable/searchbar_component</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:lines">1</item>
+        <item name="android:layout_height">59dp</item>
+        <item name="android:layout_width">348dp</item>
+        <item name="android:imeOptions">actionDone</item>
+        <item name="android:drawableStart">@drawable/loupe</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:textColor">@color/mainRedColor</item>
+        <item name="android:hint">@string/placeholderSearchbar</item>
+        <item name="android:textColorHint">@color/redPlaceholder</item>
     </style>
 </resources>

@@ -12,4 +12,7 @@
     <!--FRAGMENT ERROR-->
     <string name="fragmentErrorConection">Vaya, tus pokemons no tienen conexión</string>
     <string name="fragmentErrorFavourites">¿A qué esperas para tener pokemons favoritos?"</string>
+
+    <!-- POKEMON LIST -->
+    <string name="placeholderSearchbar">Buscar pokemons</string>
 </resources>

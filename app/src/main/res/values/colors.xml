@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="redPokemonButtons">#DF0505</color>
     <color name="gray">#E5E5E5</color>
+    <color name="redPlaceholder">#8ADF0505</color>
 </resources>
