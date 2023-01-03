@@ -1,9 +1,11 @@
 package ae.mycourse.pokemon.framework
 
 import ae.mycourse.pokemon.data.pokemon.datasources.PokemonApiService
+import ae.mycourse.pokemon.domain.ListPokemonsModel
 import ae.mycourse.pokemon.framework.common.DialogProgressCircleBar
 import ae.mycourse.pokemon.framework.datasources.PokeApiRemoteService
 import ae.mycourse.pokemon.framework.datasources.ServerPokemonDataSource
+import ae.mycourse.pokemon.usescases.FilterListUseCase
 import android.app.Application
 import android.content.Context
 import dagger.Module
@@ -38,9 +40,11 @@ class FrameworkModule {
     fun pokeApiRemoteServiceProvider(retrofit: Retrofit): PokeApiRemoteService = retrofit.create(PokeApiRemoteService::class.java)
 
     @Provides
-    fun pokemonApiClient(pokeApiRemoteService: PokeApiRemoteService): PokemonApiService{
-        return ServerPokemonDataSource(pokeApiRemoteService)
-    }
+    fun pokemonApiClient(pokeApiRemoteService: PokeApiRemoteService): PokemonApiService =
+        ServerPokemonDataSource(pokeApiRemoteService)
 
 
+    @Provides
+    fun filterListUseCaseProvider(): FilterListUseCase =
+        FilterListUseCase()
 }

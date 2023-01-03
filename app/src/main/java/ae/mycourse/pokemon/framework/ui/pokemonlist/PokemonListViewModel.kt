@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PokemonListViewModel @Inject constructor(private val getPokemonsListUseCase: GetPokemonsListUseCase) : ViewModel() {
+class PokemonListViewModel @Inject constructor(private val getPokemonsListUseCase: GetPokemonsListUseCase, private val filterListUseCase: FilterListUseCase) : ViewModel() {
 
     private var _pokemonsList = MutableLiveData<ListPokemonsModel>()
     val pokemonList: LiveData<ListPokemonsModel> get() = _pokemonsList
@@ -28,22 +28,6 @@ class PokemonListViewModel @Inject constructor(private val getPokemonsListUseCas
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun filterList(nameSearched: String?) {
-        //Conseguir una lista con el objeto completo pokemon. Lo pasará por live data y entonces activo el notifydatasert en
-        //la clase que maneja la interfaz de usuario
-
-
-        /*
-        Log.i("mensaje query","Entra en la query")
-        *//*pokemonListViewModel.filterList("hola")*//*
-        var names : MutableList<String> = mutableListOf()
-        var images : MutableList<String> = mutableListOf()
-        names.add("pikachu")
-        images.add("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png")
-
-        recyclerListAdapter.newList = names
-        recyclerListAdapter.imageList = images
-        recyclerListAdapter.notifyDataSetChanged()*/
-    }
+    fun filterList(keyword: String?): ListPokemonsModel = filterListUseCase.invoke(keyword, _pokemonsList.value)
 
 }

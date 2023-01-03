@@ -37,13 +37,6 @@ class MyRecyclerAdapter(var pokemonList: ListPokemonsModel?) : RecyclerView.Adap
         return 0
     }
 
-
-    @SuppressLint("NotifyDataSetChanged")
-    fun filterList(pokemonFilteredList: ListPokemonsModel){
-        pokemonList = pokemonFilteredList
-        notifyDataSetChanged()
-    }
-
     class ViewHolderList(itemView : View) : RecyclerView.ViewHolder(itemView) {
         val pokemonName: TextView = itemView.findViewById(R.id.pokemonListName)
         val pokemonImage: ImageView = itemView.findViewById(R.id.pokemonListImage)

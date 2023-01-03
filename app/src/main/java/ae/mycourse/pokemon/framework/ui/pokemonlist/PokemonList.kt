@@ -54,8 +54,8 @@ class PokemonList : Fragment(), SearchView.OnQueryTextListener {
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onQueryTextChange(newText: String?): Boolean {
-        /*pokemonListViewModel.filterList(newText)*/
+        recyclerListAdapter.pokemonList = pokemonListViewModel.filterList(newText)
+        recyclerListAdapter.notifyDataSetChanged()
         return true
     }
-
 }
