@@ -6,8 +6,6 @@
     android:background="@color/black"
     tools:context=".framework.ui.introvideo.IntroVideo">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <VideoView
         android:id="@+id/videoViewIntro"
         android:layout_width="match_parent"
