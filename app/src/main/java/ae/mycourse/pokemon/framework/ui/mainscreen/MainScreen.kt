@@ -9,12 +9,11 @@ import ae.mycourse.pokemon.R
 import ae.mycourse.pokemon.databinding.FragmentMainScreenBinding
 import ae.mycourse.pokemon.framework.ui.pokemonlist.PokemonList
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 
 class MainScreen : Fragment() {
 
-    lateinit var buttonPokedex: Button
-    lateinit var buttonFavourites: Button
     var bundle = Bundle()
     private var _binding: FragmentMainScreenBinding? = null
     // This property is only valid between onCreateView and
@@ -27,8 +26,7 @@ class MainScreen : Fragment() {
     ): View? {
         _binding = FragmentMainScreenBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        //Buttons listeners
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
         binding.buttonPokedex.setOnClickListener{
             nextFragment(PokemonList())
         }

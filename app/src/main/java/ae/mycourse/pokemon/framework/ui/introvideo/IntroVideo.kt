@@ -8,8 +8,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+
 
 class IntroVideo : Fragment() {
 
@@ -22,6 +24,7 @@ class IntroVideo : Fragment() {
     ): View? {
         _binding = FragmentIntroVideoBinding.inflate(inflater,container, false)
        val view = binding.root
+       (activity as AppCompatActivity?)!!.supportActionBar!!.hide()
        binding.videoViewIntro.setVideoURI(Uri.parse("android.resource://" + requireActivity().packageName +"/"+ R.raw.intro_pokemon))
        binding.videoViewIntro.requestFocus()
        binding.videoViewIntro.setOnPreparedListener{it.start()}
@@ -34,7 +37,6 @@ class IntroVideo : Fragment() {
         parentFragmentManager.commit {
             setReorderingAllowed(true)
             replace(R.id.fragmentContainer, MainScreen())
-
         }
     }
 

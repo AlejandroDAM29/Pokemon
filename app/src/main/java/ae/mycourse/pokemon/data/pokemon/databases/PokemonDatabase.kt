@@ -1,0 +1,12 @@
+package ae.mycourse.pokemon.data.pokemon.databases
+
+import ae.mycourse.pokemon.data.pokemon.datasources.PokemonDao
+import ae.mycourse.pokemon.data.pokemon.entities.PokemonListEntity
+import androidx.room.Database
+import androidx.room.RoomDatabase
+
+@Database(entities = [PokemonListEntity::class], version = 1)
+abstract class PokemonDatabase: RoomDatabase() {
+
+    abstract fun getPokemonDao(): PokemonDao
+}

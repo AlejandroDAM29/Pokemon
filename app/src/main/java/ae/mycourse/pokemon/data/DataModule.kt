@@ -1,6 +1,7 @@
 package ae.mycourse.pokemon.data
 
 import ae.mycourse.pokemon.data.pokemon.datasources.PokemonApiService
+import ae.mycourse.pokemon.data.pokemon.datasources.PokemonDao
 import ae.mycourse.pokemon.data.pokemon.repositories.PokemonRepository
 import dagger.Module
 import dagger.Provides
@@ -12,7 +13,9 @@ import dagger.hilt.components.SingletonComponent
 class DataModule {
 
     @Provides
-    fun pokemonRepositoryProvider(pokemonApiService: PokemonApiService): PokemonRepository{
-        return PokemonRepository(pokemonApiService)
+    fun pokemonRepositoryProvider(pokemonApiService: PokemonApiService, pokemonDao: PokemonDao): PokemonRepository{
+        return PokemonRepository(pokemonApiService, pokemonDao)
     }
+
+
 }
