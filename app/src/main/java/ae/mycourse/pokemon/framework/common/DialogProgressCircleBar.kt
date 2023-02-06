@@ -25,18 +25,22 @@ abstract class DialogProgressCircleBar () {
         customProgressDialog.show()
         circularProgressIndicator = customProgressDialog.findViewById(R.id.circularProgressIndicator)
         textQuantityPokemon = customProgressDialog.findViewById(R.id.textQuantityPokemon)
+        circularProgressIndicator.isIndeterminate = true
+        textQuantityPokemon.text = getTextDialog()
     }
 
     @DelicateCoroutinesApi
-    fun setProgressCircleDialog(percentProgress: Int){
+    fun setProgressCircleDialog(percentProgress: Int=0){
+        if (percentProgress == 0) {
+            circularProgressIndicator.isIndeterminate = false
             circularProgressIndicator.setProgressCompat(getcalculatedPorcentDialog(percentProgress), true)
             textQuantityPokemon.text = getTextDialog(percentProgress)
-
+        }
     }
 
     //Here is the form to calculate total percent for every screen
     abstract fun getcalculatedPorcentDialog(quantity: Int): Int
 
     //The string that you can see to say user how is going the process
-    abstract fun getTextDialog(quantity: Int): String
+    abstract fun getTextDialog(quantity: Int=0): String
 }

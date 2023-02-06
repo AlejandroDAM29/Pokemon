@@ -20,23 +20,16 @@ class GetPokemonsListUseCase (private val pokemonRepository: PokemonRepository):
     suspend fun invoke(context: Context): ListPokemonsModel{
         mContext = context
         showCustomProgressDialog(context)
-        val pokemonImages: MutableList<String> = mutableListOf()
-        val pokemonNames = pokemonRepository.getListPokemon()
-        for (name in pokemonNames){
-            pokemonImages.add(pokemonRepository.getImagesPokemon(name))
-            setProgressCircleDialog(pokemonImages.size)
-    }
+        val pokemonList = pokemonRepository.getListPokemon()
         customProgressDialog.cancel()
-        return ListPokemonsModel(pokemonNames,pokemonImages)
+        return pokemonList
     }
 
     override fun getcalculatedPorcentDialog(quantity: Int): Int {
         return (quantity*100)/150
     }
 
-    override fun getTextDialog(quantity: Int) = mContext.getString(R.string.loadingDownloadDialog) +
-                " "+ quantity.toString()+" "+
-                mContext.getString(R.string.loadingDownloadDialog2)
+    override fun getTextDialog(quantity: Int) = mContext.getString(R.string.loadingDownloadDialog)
 
 
 }

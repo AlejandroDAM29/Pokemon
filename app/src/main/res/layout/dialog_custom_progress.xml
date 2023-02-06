@@ -23,7 +23,6 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:text="Cargando 0 de 150 pokemons"
         android:layout_weight="1"/>
 
 </LinearLayout>
