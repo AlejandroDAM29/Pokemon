@@ -1,17 +1,21 @@
 package ae.mycourse.pokemon.framework.ui.tabsection
 
+import ae.mycourse.pokemon.R
+import android.content.Context
 import android.graphics.drawable.Drawable
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class TabAdapter(FragmentActivity: FragmentActivity) : FragmentStateAdapter(FragmentActivity) {
+class TabAdapter(fragmentActivity: FragmentActivity, _context: Context) : FragmentStateAdapter(fragmentActivity) {
 
     var fragmentList: ArrayList<Fragment> = ArrayList()
     var fragmentTitle: ArrayList<String> = ArrayList()
     var fragmentIcon: ArrayList<Drawable> = ArrayList()
+    val contextAdapter: Context = _context
 
     override fun getItemCount(): Int {
         return fragmentList.size
@@ -29,9 +33,9 @@ class TabAdapter(FragmentActivity: FragmentActivity) : FragmentStateAdapter(Frag
         return fragmentIcon[position]
     }
 
-    fun addFragment(fragment: Fragment, title: String, icon: Drawable) {
+    fun addFragment(fragment: Fragment, idTitle: Int, idIcon: Int) {
         fragmentList.add(fragment)
-        fragmentTitle.add(title)
-        fragmentIcon.add(icon)
+        fragmentTitle.add(contextAdapter.getString(idTitle))
+        fragmentIcon.add(ContextCompat.getDrawable(contextAdapter, idIcon)!!)
     }
 }

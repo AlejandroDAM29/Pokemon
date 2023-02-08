@@ -32,9 +32,9 @@ class TabsSection : Fragment() {
         val viewPager: ViewPager2 = binding.viewPager
         val tabLayout: TabLayout = binding.tabSelector
 
-        val tabAdapter: TabAdapter = TabAdapter(requireActivity())
-        tabAdapter.addFragment(PokemonList(),getString(R.string.Tab1),ContextCompat.getDrawable(requireContext(),R.drawable.icon_tab_list)!!)//Cambiar la lista de los nombres por variables de String definidas para idiomas
-        tabAdapter.addFragment(PokemonDetails(), "Details",ContextCompat.getDrawable(requireContext(),R.drawable.loupe)!!)
+        val tabAdapter: TabAdapter = TabAdapter(requireActivity(),requireContext())
+        tabAdapter.addFragment( PokemonList(),R.string.Tab1, R.drawable.icon_tab_list)
+        tabAdapter.addFragment( PokemonDetails(), R.string.Tab1, R.drawable.loupe)//TODO Change this item for
         viewPager.adapter = tabAdapter
         viewPager.currentItem = 0
         TabLayoutMediator(binding.tabSelector, binding.viewPager) { tab, position ->
