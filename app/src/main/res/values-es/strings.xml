@@ -14,4 +14,7 @@
 
     <!-- POKEMON LIST -->
     <string name="placeholderSearchbar">Buscar pokemons</string>
+
+    <!-- TAB TITLES -->
+    <string name="Tab1">Lista</string>
 </resources>

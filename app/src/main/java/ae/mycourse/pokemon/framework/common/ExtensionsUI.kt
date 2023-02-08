@@ -1,6 +1,7 @@
 package ae.mycourse.pokemon.framework.common
 
 import android.app.Activity
+import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import com.squareup.picasso.Picasso
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 //Obtain color
 fun Activity.color(@ColorRes color: Int) = ContextCompat.getColor(this, color)
@@ -46,7 +48,5 @@ fun EditText.onTextChanged(listener:(String) -> Unit){
             //Return the value of text after write all chain
             listener(p0.toString())
         }
-
     })
-
 }

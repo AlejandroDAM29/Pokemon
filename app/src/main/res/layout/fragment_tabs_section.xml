@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".framework.ui.tabsection.TabsSection">
+
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewPager"
+        android:background="@drawable/pokemon_color_background"/>
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabSelector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabBackground="@color/white"
+            app:tabIndicatorColor="@color/mainRedColor"
+            app:tabIndicatorAnimationMode="linear"
+            app:tabTextAppearance="@style/TabLayoutStyle"
+            app:tabTextColor="@color/mainRedColor"
+            android:layout_gravity="bottom"/>
+
+</FrameLayout>
