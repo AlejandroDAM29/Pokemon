@@ -60,5 +60,6 @@ class FrameworkModule {
     @Singleton
     fun getPokemonDao(db: PokemonDatabase): PokemonDao = db.getPokemonDao()
 
-
+    @Provides
+    fun getProgressDialogProgressBar(): DialogProgressCircleBar = DialogProgressCircleBar()
 }

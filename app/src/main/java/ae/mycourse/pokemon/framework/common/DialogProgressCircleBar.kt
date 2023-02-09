@@ -13,20 +13,19 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
-abstract class DialogProgressCircleBar () {
+class DialogProgressCircleBar () {
     lateinit var circularProgressIndicator: CircularProgressIndicator
-    lateinit var textQuantityPokemon: TextView
-
+    lateinit var textPokemon: TextView
     lateinit var customProgressDialog: Dialog
 
-    fun showCustomProgressDialog(context: Context){
+    fun showCustomProgressDialog(context: Context, idText: Int){
         customProgressDialog = Dialog(context)
         customProgressDialog.setContentView(R.layout.dialog_custom_progress)
         customProgressDialog.show()
         circularProgressIndicator = customProgressDialog.findViewById(R.id.circularProgressIndicator)
-        textQuantityPokemon = customProgressDialog.findViewById(R.id.textQuantityPokemon)
+        textPokemon = customProgressDialog.findViewById(R.id.textPokemon)
         circularProgressIndicator.isIndeterminate = true
-        textQuantityPokemon.text = getTextDialog()
+        textPokemon.text = context.getString(idText)
     }
 
     @DelicateCoroutinesApi
@@ -34,13 +33,11 @@ abstract class DialogProgressCircleBar () {
         if (percentProgress == 0) {
             circularProgressIndicator.isIndeterminate = false
             circularProgressIndicator.setProgressCompat(getcalculatedPorcentDialog(percentProgress), true)
-            textQuantityPokemon.text = getTextDialog(percentProgress)
         }
     }
 
     //Here is the form to calculate total percent for every screen
-    abstract fun getcalculatedPorcentDialog(quantity: Int): Int
-
-    //The string that you can see to say user how is going the process
-    abstract fun getTextDialog(quantity: Int=0): String
+    fun getcalculatedPorcentDialog(quantity: Int): Int{
+        return 0
+    }
 }

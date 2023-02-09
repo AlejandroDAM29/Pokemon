@@ -10,7 +10,7 @@ import android.app.Dialog
 import android.content.Context
 import kotlinx.coroutines.DelicateCoroutinesApi
 
-class GetPokemonsListUseCase (private val pokemonRepository: PokemonRepository): DialogProgressCircleBar() {
+class GetPokemonsListUseCase (private val pokemonRepository: PokemonRepository) {
 
     lateinit var mContext: Context
 
@@ -18,17 +18,9 @@ class GetPokemonsListUseCase (private val pokemonRepository: PokemonRepository):
     @SuppressLint("SuspiciousIndentation")
     suspend fun invoke(context: Context): ListPokemonsModel{
         mContext = context
-        showCustomProgressDialog(context)
         val pokemonList = pokemonRepository.getListPokemon()
-        customProgressDialog.cancel()
         return pokemonList
     }
-
-    override fun getcalculatedPorcentDialog(quantity: Int): Int {
-        return (quantity*100)/150
-    }
-
-    override fun getTextDialog(quantity: Int) = mContext.getString(R.string.loadingDownloadDialog)
 
 
 }
