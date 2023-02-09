@@ -1,12 +1,7 @@
 package ae.mycourse.pokemon.framework.datasources
 
-import ae.mycourse.pokemon.framework.datasources.domain.allpokemon.AllPokemonsModelResponse
-import ae.mycourse.pokemon.framework.datasources.domain.base.URLBaseResponse
-import ae.mycourse.pokemon.framework.datasources.domain.detailspokemon.DetailsPokemonModelResponse
 import ae.mycourse.pokemon.framework.datasources.domain.listpokemon.ListPokemonResponse
-import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface PokeApiRemoteService {
 

@@ -2,12 +2,7 @@ package ae.mycourse.pokemon.framework.datasources
 
 import ae.mycourse.pokemon.data.pokemon.datasources.PokemonApiService
 import ae.mycourse.pokemon.domain.ListPokemonsModel
-import ae.mycourse.pokemon.domain.URLBaseModel
-import ae.mycourse.pokemon.framework.datasources.domain.allpokemon.AllPokemonsModelResponse
-import ae.mycourse.pokemon.framework.datasources.domain.detailspokemon.DetailsPokemonModelResponse
-import ae.mycourse.pokemon.framework.datasources.domain.base.URLBaseResponse
 import android.util.Log
-import retrofit2.Response
 
 class ServerPokemonDataSource(private val pokeApiRemoteService: PokeApiRemoteService): PokemonApiService {
 
