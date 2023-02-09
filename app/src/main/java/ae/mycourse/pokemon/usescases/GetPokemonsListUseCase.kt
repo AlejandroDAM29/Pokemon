@@ -1,7 +1,6 @@
 package ae.mycourse.pokemon.usescases
 
 import ae.mycourse.pokemon.R
-import ae.mycourse.pokemon.data.pokemon.entities.PokemonListEntity
 import ae.mycourse.pokemon.data.pokemon.repositories.PokemonRepository
 import ae.mycourse.pokemon.domain.ListPokemonsModel
 import ae.mycourse.pokemon.framework.common.DialogProgressCircleBar

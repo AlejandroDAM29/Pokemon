@@ -10,4 +10,12 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 class UsesCasesModule {
 
+    @Provides
+    fun filterListUseCaseProvider(): FilterListUseCase =
+        FilterListUseCase()
+
+    @Provides
+    fun obtainFavouriteListUseCaseProvider(pokemonRepository: PokemonRepository): ObtainFavouriteListUseCase =
+        ObtainFavouriteListUseCase(pokemonRepository)
+
 }

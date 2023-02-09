@@ -5,6 +5,7 @@ import ae.mycourse.pokemon.framework.common.longToast
 import ae.mycourse.pokemon.framework.common.shorToast
 import ae.mycourse.pokemon.framework.ui.introvideo.IntroVideo
 import ae.mycourse.pokemon.framework.ui.mainscreen.MainScreen
+import ae.mycourse.pokemon.framework.ui.tabsection.TabsSection
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen
@@ -27,7 +28,8 @@ class MainActivity : AppCompatActivity() {
         if(savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<IntroVideo>(R.id.fragmentContainer)
+                /*add<IntroVideo>(R.id.fragmentContainer)*/
+                add<TabsSection>(R.id.fragmentContainer)
             }
 
         }

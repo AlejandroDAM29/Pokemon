@@ -34,7 +34,7 @@
             android:layout_width="172dp"
             android:layout_height="84dp"
             android:text="@string/favourites"
-            android:drawableLeft="@drawable/icon_start"
+            android:drawableLeft="@drawable/icon_start_fav"
             android:background="@drawable/round_corners_buttons"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

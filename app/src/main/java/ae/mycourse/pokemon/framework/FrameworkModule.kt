@@ -47,10 +47,6 @@ class FrameworkModule {
         ServerPokemonDataSource(pokeApiRemoteService)
 
     @Provides
-    fun filterListUseCaseProvider(): FilterListUseCase =
-        FilterListUseCase()
-
-    @Provides
     @Singleton
     @Named("nameDatabase")
     fun nameRoomDatabase(): String = "pokemon_database2"

@@ -40,11 +40,17 @@ class PokemonList : Fragment() {
         _binding = FragmentPokemonListBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        recyclerListAdapter = MyRecyclerAdapter(pokemonListViewModel.pokemonList.value)
+        recyclerListAdapter = MyRecyclerAdapter(pokemonListViewModel.pokemonList.value,
+                                                pokemonListViewModel.favouritePokemons.value)
         binding.recyclerViewList.adapter = recyclerListAdapter
 
         pokemonListViewModel.pokemonList.observe(viewLifecycleOwner){ pokemons ->
             recyclerListAdapter.pokemonList = pokemons
+            recyclerListAdapter.notifyDataSetChanged()
+        }
+
+        pokemonListViewModel.favouritePokemons.observe(viewLifecycleOwner){listPokemon ->
+            recyclerListAdapter.pokemonFavourties = listPokemon
             recyclerListAdapter.notifyDataSetChanged()
         }
 
