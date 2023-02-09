@@ -1,4 +1,4 @@
-package ae.mycourse.pokemon.data.pokemon.entities
+package ae.mycourse.pokemon.data.pokemon.databases.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

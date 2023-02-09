@@ -1,7 +1,6 @@
 package ae.mycourse.pokemon.data.pokemon.databases
 
-import ae.mycourse.pokemon.data.pokemon.datasources.PokemonDao
-import ae.mycourse.pokemon.data.pokemon.entities.FavouriteList
+import ae.mycourse.pokemon.data.pokemon.databases.entities.FavouriteList
 import androidx.room.Database
 import androidx.room.RoomDatabase
 

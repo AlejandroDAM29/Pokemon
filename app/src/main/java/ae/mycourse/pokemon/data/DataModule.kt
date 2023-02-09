@@ -1,7 +1,7 @@
 package ae.mycourse.pokemon.data
 
 import ae.mycourse.pokemon.data.pokemon.datasources.PokemonApiService
-import ae.mycourse.pokemon.data.pokemon.datasources.PokemonDao
+import ae.mycourse.pokemon.data.pokemon.databases.PokemonDao
 import ae.mycourse.pokemon.data.pokemon.repositories.PokemonRepository
 import dagger.Module
 import dagger.Provides

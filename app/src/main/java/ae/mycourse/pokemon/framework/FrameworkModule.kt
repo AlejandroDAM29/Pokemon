@@ -2,13 +2,10 @@ package ae.mycourse.pokemon.framework
 
 import ae.mycourse.pokemon.data.pokemon.databases.PokemonDatabase
 import ae.mycourse.pokemon.data.pokemon.datasources.PokemonApiService
-import ae.mycourse.pokemon.data.pokemon.datasources.PokemonDao
-import ae.mycourse.pokemon.domain.ListPokemonsModel
+import ae.mycourse.pokemon.data.pokemon.databases.PokemonDao
 import ae.mycourse.pokemon.framework.common.DialogProgressCircleBar
 import ae.mycourse.pokemon.framework.datasources.PokeApiRemoteService
 import ae.mycourse.pokemon.framework.datasources.ServerPokemonDataSource
-import ae.mycourse.pokemon.usescases.FilterListUseCase
-import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import dagger.Module

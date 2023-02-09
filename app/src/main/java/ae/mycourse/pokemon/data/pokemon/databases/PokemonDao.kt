@@ -1,6 +1,6 @@
-package ae.mycourse.pokemon.data.pokemon.datasources
+package ae.mycourse.pokemon.data.pokemon.databases
 
-import ae.mycourse.pokemon.data.pokemon.entities.FavouriteList
+import ae.mycourse.pokemon.data.pokemon.databases.entities.FavouriteList
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
