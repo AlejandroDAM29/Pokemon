@@ -48,6 +48,8 @@ class MyRecyclerAdapter(var pokemonList: ListPokemonsModel?, var pokemonFavourti
                     existFavourite = R.drawable.icon_start_fav
             }
         }
+
+
         return existFavourite
     }
 

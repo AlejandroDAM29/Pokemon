@@ -46,7 +46,6 @@ class PokemonList : Fragment() {
 
         pokemonListViewModel.pokemonList.observe(viewLifecycleOwner){ pokemons ->
             recyclerListAdapter.pokemonList = pokemons
-            recyclerListAdapter.notifyDataSetChanged()
         }
 
         pokemonListViewModel.favouritePokemons.observe(viewLifecycleOwner){listPokemon ->
