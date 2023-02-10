@@ -1,6 +1,8 @@
 package ae.mycourse.pokemon.framework.ui.pokemonlist
 
 import ae.mycourse.pokemon.R
+import ae.mycourse.pokemon.data.pokemon.databases.entities.FavouriteList
+import ae.mycourse.pokemon.data.pokemon.repositories.PokemonRepository
 import ae.mycourse.pokemon.domain.ListPokemonsModel
 import ae.mycourse.pokemon.framework.common.DialogProgressCircleBar
 import ae.mycourse.pokemon.usescases.FilterListUseCase
@@ -24,15 +26,12 @@ class PokemonListViewModel @Inject constructor(private val getPokemonsListUseCas
 
     private var _pokemonsList = MutableLiveData<ListPokemonsModel>()
     val pokemonList: LiveData<ListPokemonsModel> get() = _pokemonsList
-    private var _favouritePokemons = MutableLiveData<MutableList<String>>()
-    val favouritePokemons: LiveData<MutableList<String>> get() = _favouritePokemons
-
+    var favouritePokemons: LiveData<MutableList<FavouriteList>> = obtainFavouriteListUseCase.invoke()
 
     fun getPokemonList(context: Context) {
         viewModelScope.launch {
             progressCircleDialog.showCustomProgressDialog(context, R.string.loadingDownloadDialog)
             _pokemonsList.value = getPokemonsListUseCase.invoke(context)
-            _favouritePokemons.value = obtainFavouriteListUseCase.invoke()
             progressCircleDialog.customProgressDialog.cancel()
         }
     }

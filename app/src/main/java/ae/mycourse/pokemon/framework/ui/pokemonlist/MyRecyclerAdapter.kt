@@ -1,6 +1,7 @@
 package ae.mycourse.pokemon.framework.ui.pokemonlist
 
 import ae.mycourse.pokemon.R
+import ae.mycourse.pokemon.data.pokemon.databases.entities.FavouriteList
 import ae.mycourse.pokemon.domain.ListPokemonsModel
 import ae.mycourse.pokemon.framework.common.isNull
 import ae.mycourse.pokemon.framework.common.picassoConvert
@@ -14,7 +15,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class MyRecyclerAdapter(var pokemonList: ListPokemonsModel?, var pokemonFavourties: MutableList<String>?) : RecyclerView.Adapter<MyRecyclerAdapter.ViewHolderList>() {
+class MyRecyclerAdapter(var pokemonList: ListPokemonsModel?, var pokemonFavourties: MutableList<FavouriteList>?) : RecyclerView.Adapter<MyRecyclerAdapter.ViewHolderList>() {
 
     //RecyclerView Methods
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderList {
@@ -44,7 +45,7 @@ class MyRecyclerAdapter(var pokemonList: ListPokemonsModel?, var pokemonFavourti
        var existFavourite = R.drawable.icon_start_no_fav
         if (!pokemonFavourties.isNull()){
             pokemonFavourties?.map { favourite ->
-                if (favourite == pokemonName)
+                if (favourite.name == pokemonName)
                     existFavourite = R.drawable.icon_start_fav
             }
         }
