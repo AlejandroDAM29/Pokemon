@@ -10,7 +10,6 @@
 
 
 
-    <!-- TODO: Update blank fragment layout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,21 +26,7 @@
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.181" />
-
-        <Button
-            android:id="@+id/buttonFavorourites"
-            android:layout_width="172dp"
-            android:layout_height="84dp"
-            android:text="@string/favourites"
-            android:drawableLeft="@drawable/icon_start_fav"
-            android:background="@drawable/round_corners_buttons"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonPokedex"
-            app:layout_constraintVertical_bias="0.406" />
+            app:layout_constraintVertical_bias="0.476" />
 
         <ImageView
             android:id="@+id/imageView"

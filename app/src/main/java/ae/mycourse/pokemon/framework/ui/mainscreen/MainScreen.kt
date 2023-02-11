@@ -27,10 +27,6 @@ class MainScreen : Fragment() {
         binding.buttonPokedex.setOnClickListener{
             nextFragment(TabsSection())
         }
-        binding.buttonFavorourites.setOnClickListener{
-            bundle.putString("fragmentData",getString(R.string.fragmentErrorFavourites))
-            /*nextFragment(FragmentError())*/
-        }
         return view
     }
 
