@@ -7,12 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ae.mycourse.pokemon.databinding.FragmentPokemonListBinding
-import ae.mycourse.pokemon.domain.ListPokemonsModel
-import ae.mycourse.pokemon.framework.common.onTextChanged
 import android.annotation.SuppressLint
 import android.text.Editable
-import android.util.Log
-import androidx.appcompat.widget.SearchView
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,15 +18,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class PokemonList : Fragment() {
 
     private var _binding: FragmentPokemonListBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
     private val pokemonListViewModel : PokemonListViewModel by viewModels()
     private lateinit var recyclerListAdapter: MyRecyclerAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -60,7 +50,6 @@ class PokemonList : Fragment() {
             recyclerListAdapter.notifyDataSetChanged()
         }
         pokemonListViewModel.getPokemonList(requireContext())
-
         return view
     }
 

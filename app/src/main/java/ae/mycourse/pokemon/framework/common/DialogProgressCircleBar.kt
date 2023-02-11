@@ -1,17 +1,11 @@
 package ae.mycourse.pokemon.framework.common
 
 import ae.mycourse.pokemon.R
-import ae.mycourse.pokemon.databinding.DialogCustomProgressBinding
-import ae.mycourse.pokemon.databinding.FragmentPokemonListBinding
-import android.app.Application
 import android.app.Dialog
 import android.content.Context
-import android.view.View
 import android.widget.TextView
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.*
-import javax.inject.Inject
 
 class DialogProgressCircleBar () {
     lateinit var circularProgressIndicator: CircularProgressIndicator

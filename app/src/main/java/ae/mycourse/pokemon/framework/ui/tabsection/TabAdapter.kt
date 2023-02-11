@@ -1,13 +1,10 @@
 package ae.mycourse.pokemon.framework.ui.tabsection
 
-import ae.mycourse.pokemon.R
 import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class TabAdapter(fragmentActivity: FragmentActivity, _context: Context) : FragmentStateAdapter(fragmentActivity) {

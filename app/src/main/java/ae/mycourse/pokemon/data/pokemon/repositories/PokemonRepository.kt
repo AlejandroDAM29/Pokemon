@@ -8,6 +8,5 @@ class PokemonRepository (private val pokemonApiService: PokemonApiService, priva
 
     suspend fun getListPokemon() = pokemonApiService.getPokemonList()
     fun getFavouritePokemons() = pokemonDao.getFavouriteList()
-    suspend fun insertFavouritePokemon(name: String) = pokemonDao.insertFavouritePokemon(
-        FavouriteList(null,name))
+    suspend fun insertFavouritePokemon(name: String) = pokemonDao.insertFavouritePokemon( FavouriteList(null,name))
 }

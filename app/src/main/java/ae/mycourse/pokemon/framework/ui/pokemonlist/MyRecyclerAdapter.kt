@@ -5,19 +5,15 @@ import ae.mycourse.pokemon.data.pokemon.databases.entities.FavouriteList
 import ae.mycourse.pokemon.domain.ListPokemonsModel
 import ae.mycourse.pokemon.framework.common.isNull
 import ae.mycourse.pokemon.framework.common.picassoConvert
-import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
 
 class MyRecyclerAdapter(var pokemonList: ListPokemonsModel?, var pokemonFavourties: MutableList<FavouriteList>?) : RecyclerView.Adapter<MyRecyclerAdapter.ViewHolderList>() {
 
-    //RecyclerView Methods
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderList {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.pokemon_item_list, parent, false)
         return ViewHolderList(itemView)
@@ -49,8 +45,6 @@ class MyRecyclerAdapter(var pokemonList: ListPokemonsModel?, var pokemonFavourti
                     existFavourite = R.drawable.icon_start_fav
             }
         }
-
-
         return existFavourite
     }
 

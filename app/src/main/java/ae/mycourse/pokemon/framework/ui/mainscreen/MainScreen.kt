@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import ae.mycourse.pokemon.R
 import ae.mycourse.pokemon.databinding.FragmentMainScreenBinding
-import ae.mycourse.pokemon.framework.ui.pokemonlist.PokemonList
-import ae.mycourse.pokemon.framework.ui.tabsection.TabAdapter
 import ae.mycourse.pokemon.framework.ui.tabsection.TabsSection
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 
@@ -18,8 +15,6 @@ class MainScreen : Fragment() {
 
     var bundle = Bundle()
     private var _binding: FragmentMainScreenBinding? = null
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,8 +33,6 @@ class MainScreen : Fragment() {
         }
         return view
     }
-
-
 
     private fun nextFragment(fragment: Fragment){
         parentFragmentManager.commit {

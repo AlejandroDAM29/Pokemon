@@ -2,7 +2,6 @@ package ae.mycourse.pokemon.usescases
 
 import ae.mycourse.pokemon.domain.ListPokemonsModel
 import ae.mycourse.pokemon.framework.common.isNull
-import android.util.Log
 
 class FilterListUseCase {
     fun invoke(keyword: String?, pokemonList: ListPokemonsModel?): ListPokemonsModel{
@@ -10,7 +9,7 @@ class FilterListUseCase {
             if (!pokemonList.isNull())
                 return pokemonList!!
         }else{
-            val pokemonListFiltered: ListPokemonsModel = ListPokemonsModel(mutableListOf(), mutableListOf())
+            val pokemonListFiltered = ListPokemonsModel(mutableListOf(), mutableListOf())
             if (!pokemonList.isNull()){
                 for ((index, name) in pokemonList!!.names.withIndex()){
                     if (name.contains(keyword!!) ){
